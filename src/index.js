@@ -1,12 +1,7 @@
-//FACTORY FUNCTION FOR CREATING TODOS
-function createToDo(title, desc, dueDate, priority) {
-    return {
-        title,
-        desc,
-        dueDate,
-        priority
-    };
-}
+import { newProjEvent } from './newProject';
+import { prioritySelectEvent, deleteToDoEvent } from './toDo';
 
-let projects = [];
 
+newProjEvent();
+prioritySelectEvent();
+deleteToDoEvent();
