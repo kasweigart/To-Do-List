@@ -1,7 +1,8 @@
-import { newProjEvent } from './newProject';
-import { prioritySelectEvent, deleteToDoEvent } from './toDo';
+import { newProj } from './newProject';
+import { toDo, prioritySelect, deleteToDo } from './toDo';
 
 
-newProjEvent();
-prioritySelectEvent();
-deleteToDoEvent();
+newProj();
+toDo();
+prioritySelect();
+deleteToDo();
