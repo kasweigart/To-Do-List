@@ -4,7 +4,8 @@
   "description": "To-Do List A simple to-do list for those who require daily organized planning.",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack"
+    "build": "npx webpack",
+    "lint": "npx eslint"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/kasweigart/To-Do-List#readme",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }

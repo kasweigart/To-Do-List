@@ -1,55 +1,55 @@
 const toDo = function () {
-  let toDos = [];
+  const toDos = [];
 
   const titleInput = document.querySelector('#title');
   const descInput = document.querySelector('#description');
   const dueDateInput = document.querySelector('#dueDate');
   const newToDoButton = document.querySelector('#newToDo');
 
-  const toDoFactory = function(title, desc, dueDate, priority) {
+  const toDoFactory = function (title, desc, dueDate, priority) {
     return {
-        title,
-        desc,
-        dueDate,
-        priority
+      title,
+      desc,
+      dueDate,
+      priority,
     };
+  };
 
-  }
-
-  const newToDo = function () {
+  const newToDo = function (e) {
     const createToDo = toDoFactory(titleInput.value, descInput.value, dueDateInput.value, '');
     const blankMessage = document.querySelector('#blankMessage');
+    e.preventDefault();
     blankMessage.remove();
     renderToDo(createToDo);
     toDos.push(createToDo);
-    console.log(toDos)
-  }
+    console.log(toDos);
+  };
 
   newToDoButton.addEventListener('click', newToDo);
-}
+};
 
 const prioritySelect = function () {
-  $('.dropdown').on('click', "#high", function (event) {
-      const selectButton = event.target.parentElement.parentElement.firstElementChild;
-      selectButton.innerText = 'High';
-      selectButton.setAttribute('class', 'btn btn-warning');
-  })
-  $('.dropdown').on('click', "#low", function (event) {
-      const selectButton = event.target.parentElement.parentElement.firstElementChild;
-      selectButton.innerText = 'Low';
-      selectButton.setAttribute('class', 'btn btn-success');
-  })
-}
+  $('.dropdown').on('click', '#high', (event) => {
+    const selectButton = event.target.parentElement.parentElement.firstElementChild;
+    selectButton.innerText = 'High';
+    selectButton.setAttribute('class', 'btn btn-warning');
+  });
+  $('.dropdown').on('click', '#low', (event) => {
+    const selectButton = event.target.parentElement.parentElement.firstElementChild;
+    selectButton.innerText = 'Low';
+    selectButton.setAttribute('class', 'btn btn-success');
+  });
+};
 
 const deleteToDo = function () {
-$(".table").on("click", "#deleteButton", function (event) {
-  event.target.parentElement.parentElement.remove();
-});
+  $('.table').on('click', '#deleteButton', (event) => {
+    event.target.parentElement.parentElement.remove();
+  });
 };
 
 const renderToDo = function (createToDo) {
   const toDoTable = document.querySelector('.table');
-    const addToDoHTML = `<tr>
+  const addToDoHTML = `<tr>
     <td>${createToDo.title}</td>
     <td>${createToDo.desc}</td>
     <td>${createToDo.dueDate}</td>
@@ -67,8 +67,12 @@ const renderToDo = function (createToDo) {
 
   toDoTable.innerHTML += addToDoHTML;
   prioritySelect();
-}
+};
 
 
-
-export { toDo, renderToDo, prioritySelect, deleteToDo };
+export {
+  toDo,
+  renderToDo,
+  prioritySelect,
+  deleteToDo,
+};
