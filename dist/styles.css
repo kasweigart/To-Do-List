@@ -157,4 +157,7 @@ input {
   margin-bottom: 0;
 }
 
-.
+#blankMessage {
+margin: 1em;
+text-align: center;
+}
